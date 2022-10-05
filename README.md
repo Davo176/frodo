@@ -91,6 +91,17 @@ $ ./frodo976/PQCtestKAT_kem
 $ ./frodo1344/PQCtestKAT_kem
 ```
 
+# ADDITIONAL TESTING
+make additionalTesting
+$ ./frodo_/addRandomTest
+$ ./frodo_/addRandomTest_shake
+$ ./frodo_/addEncapsTest
+$ ./frodo_/addEncapsTest_shake
+$ ./frodo_/addDecapsTest
+$ ./frodo_/addDecapsTest_shake
+
+where _ is 640, 976, 1344
+
 ### Using SHAKE128
 
 By executing:

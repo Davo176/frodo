@@ -199,6 +199,41 @@ else
 	$(CC) $(CFLAGS) -L./frodo1344 tests/PQCtestKAT_kem1344.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/PQCtestKAT_kem $(ARM_SETTING)
 endif
 
+additionalTests: RANDKATS ENCAPSKATS DECAPSKATS
+
+RANDKATS: lib640_for_KATs lib976_for_KATs lib1344_for_KATs
+ifeq "$(GENERATION_A)" "SHAKE128"
+	$(CC) $(CFLAGS) -L./frodo640 tests/addRandomTest640Shake.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo640/addRandomTest_shake $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo976 tests/addRandomTest976Shake.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo976/addRandomTest_shake $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo1344 tests/addRandomTest1344Shake.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/addRandomTest_shake $(ARM_SETTING)
+else
+	$(CC) $(CFLAGS) -L./frodo640 tests/addRandomTest640.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo640/addRandomTest $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo976 tests/addRandomTest976.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo976/addRandomTest $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo1344 tests/addRandomTest1344.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/addRandomTest $(ARM_SETTING)
+endif
+
+ENCAPSKATS: lib640_for_KATs lib976_for_KATs lib1344_for_KATs
+ifeq "$(GENERATION_A)" "SHAKE128"
+	$(CC) $(CFLAGS) -L./frodo640 tests/addEncapsTest640Shake.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo640/addEncapsTest_shake $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo976 tests/addEncapsTest976Shake.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo976/addEncapsTest_shake $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo1344 tests/addEncapsTest1344Shake.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/addEncapsTest_shake $(ARM_SETTING)
+else
+	$(CC) $(CFLAGS) -L./frodo640 tests/addEncapsTest640.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo640/addEncapsTest $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo976 tests/addEncapsTest976.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo976/addEncapsTest $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo1344 tests/addEncapsTest1344.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/addEncapsTest $(ARM_SETTING)
+endif
+
+DECAPSKATS: lib640_for_KATs lib976_for_KATs lib1344_for_KATs
+ifeq "$(GENERATION_A)" "SHAKE128"
+	$(CC) $(CFLAGS) -L./frodo640 tests/addDecapsTest640Shake.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo640/addDecapsTest_shake $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo976 tests/addDecapsTest976Shake.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo976/addDecapsTest_shake $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo1344 tests/addDecapsTest1344Shake.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/addDecapsTest_shake $(ARM_SETTING)
+else
+	$(CC) $(CFLAGS) -L./frodo640 tests/addDecapsTest640.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo640/addDecapsTest $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo976 tests/addDecapsTest976.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo976/addDecapsTest $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo1344 tests/addDecapsTest1344.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/addDecapsTest $(ARM_SETTING)
+endif
+
 check: tests
 
 test640:
