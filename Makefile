@@ -234,6 +234,21 @@ else
 	$(CC) $(CFLAGS) -L./frodo1344 tests/addDecapsTest1344.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/addDecapsTest $(ARM_SETTING)
 endif
 
+CREATEKEYPAIRS: lib640_for_KATs lib976_for_KATs lib1344_for_KATs
+	$(CC) $(CFLAGS) -L./frodo640 tests/createKeyPairs640.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo640/createKeyPairs $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo976 tests/createKeyPairs976.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo976/createKeyPairs $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo1344 tests/createKeyPairs1344.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/createKeyPairs $(ARM_SETTING)
+
+CREATEENCAPSULATIONS: lib640_for_KATs lib976_for_KATs lib1344_for_KATs
+	$(CC) $(CFLAGS) -L./frodo640 tests/createEncapsulations640.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo640/createEncapsulations $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo976 tests/createEncapsulations976.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo976/createEncapsulations $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo1344 tests/createEncapsulations1344.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/createEncapsulations $(ARM_SETTING)
+
+CHECKDECAPSULATIONS: lib640_for_KATs lib976_for_KATs lib1344_for_KATs
+	$(CC) $(CFLAGS) -L./frodo640 tests/checkDecapsulations640.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo640/checkDecapsulations $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo976 tests/checkDecapsulations976.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo976/checkDecapsulations $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./frodo1344 tests/checkDecapsulations1344.c tests/rng.c -lfrodo_for_testing $(LDFLAGS) -o frodo1344/checkDecapsulations $(ARM_SETTING)
+
 check: tests
 
 test640:
