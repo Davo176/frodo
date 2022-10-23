@@ -190,7 +190,6 @@ main()
 
         fprintBstr(fp_rsp, "ct = ", ctUnderTest[count], CRYPTO_CIPHERTEXTBYTES);
 
-        fprintf(fp_rsp, "\n");
 
         if ( (ret_val = crypto_kem_dec_Frodo976(ss, ctUnderTest[count], skUnderTest[count])) != 0) {
             printf("crypto_kem_dec returned <%d>\n", ret_val);
@@ -198,6 +197,7 @@ main()
         }
 
         fprintBstr(fp_rsp, "ss = ", ss, CRYPTO_BYTES);
+        fprintf(fp_rsp, "\n");
 
     } while ( !done );
 

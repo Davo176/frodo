@@ -190,14 +190,14 @@ main()
 
         fprintBstr(fp_rsp, "ct = ", ctUnderTest[count], CRYPTO_CIPHERTEXTBYTES);
 
-        fprintf(fp_rsp, "\n");
-
         if ( (ret_val = crypto_kem_dec_Frodo640(ss, ctUnderTest[count], skUnderTest[count])) != 0) {
             printf("crypto_kem_dec returned <%d>\n", ret_val);
             return KAT_CRYPTO_FAILURE;
         }
 
         fprintBstr(fp_rsp, "ss = ", ss, CRYPTO_BYTES);
+
+        fprintf(fp_rsp, "\n");
 
     } while ( !done );
 
