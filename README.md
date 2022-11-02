@@ -1,6 +1,21 @@
 FrodoKEM: Learning with Errors Key Encapsulation
 ================================================
 
+Additional Testing - Will Davis
+You should be able to run:
+make RANDKATS
+make ENCAPSKATS
+make DECAPSKATS
+and then run the produced executables
+For interoperability you will again have to manually change the code between java and csharp
+The best way to do this is the find and replace java with csharp in the /tests directory
+Then for each run:
+make CREATEKEYPAIRS
+make CREATEENCAPSULATIONS
+make CHECKDECAPSULATIONS
+then run the the produced executables
+
+
 This C library implements **FrodoKEM**, an IND-CCA secure key encapsulation (KEM) protocol based on the well-studied Learning with Errors (LWE) problem [1], which in turn has close connections to conjectured-hard problems on generic, "algebraically unstructured" lattices.  This package also includes a Python reference implementation.
 **FrodoKEM** is conjectured to be secure against quantum computer attacks.
 
